@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextUpdateScript : MonoBehaviour
 {
-    public GameObject Player;
+    public GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,8 +13,10 @@ public class TextUpdateScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int healthValue = Player.GetComponent<PlayerHealth>().health;
+        
+        int healthValue = player.GetComponent<PlayerHealthScript>().playerHealth;
+        //Debug.Log(healthValue);
         Text txt =  GetComponent<Text>();
-        txt.Text = healthValue.ToString();
+        txt.text = healthValue.ToString();
     }
 }

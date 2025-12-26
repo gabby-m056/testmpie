@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class FPSColliderScript : MonoBehaviour
 {
-    public int healthPlayer = 20;
-    public int healthPear =3;
+    //public int healthPlayer = 20;
+    //public int healthPear =3;
     bool gameWon = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,17 +21,12 @@ public class FPSColliderScript : MonoBehaviour
     {
         if(other.gameObject.name == "PlayerBed"){
             
+            Debug.Log("Hit");
             other.gameObject.SetActive(false)  ;
             gameWon = true;
         } 
 
-        if(other.gameObject.tag == "Pear")
-        {
-            healthPlayer += healthPear;
-            other.gameObject.SetActive(false);
-
-            
-        }
+       
     
     }
 }
