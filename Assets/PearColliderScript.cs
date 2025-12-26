@@ -16,6 +16,6 @@ public class PearColliderScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        other.GameObject.SetActive(false);
+        //other.gameObject.SetActive(false);
     }
 }
