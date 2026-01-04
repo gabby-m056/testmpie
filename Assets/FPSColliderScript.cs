@@ -2,19 +2,24 @@ using UnityEngine;
 
 public class FPSColliderScript : MonoBehaviour
 {
-    //public int healthPlayer = 20;
-    //public int healthPear =3;
+    public GameObject GameOverScreen;
+    public GameObject NormalHUD;
+    public GameObject GameWonScreen;
     bool gameWon = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Restart();
     }
 
     // Update is called once per frame
     void Update()
     {
-          
+          if(gameWon == true)
+        {
+            GameWonScreen.SetActive(true);
+            NormalHUD.SetActive(false);
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -28,5 +33,12 @@ public class FPSColliderScript : MonoBehaviour
 
        
     
+    }
+
+    void Restart()
+    {
+        GameOverScreen.SetActive(false);
+        GameWonScreen.SetActive(false);
+        NormalHUD.SetActive(true);
     }
 }
