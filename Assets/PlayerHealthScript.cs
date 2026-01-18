@@ -5,8 +5,8 @@ public class PlayerHealthScript : MonoBehaviour
 {
     public GameObject GameOverScreen;
     public GameObject NormalHUD;
-    public int playerHealth= 25;
-    public int healthFromPear =3;
+    public int playerHealth= 50;
+    public int healthFromPear =5;
     public int intervalMilliseconds = 7000;
     private DateTime lastTrigger= DateTime.Now;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

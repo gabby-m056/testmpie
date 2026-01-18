@@ -16,4 +16,6 @@ public class FPSLightScript : MonoBehaviour
             playerflashlight.enabled = !playerflashlight.enabled;
         }
     }
+
+    
 }

@@ -5,8 +5,13 @@ public class FPSColliderScript : MonoBehaviour
     public GameObject GameOverScreen;
     public GameObject NormalHUD;
     public GameObject GameWonScreen;
+    public GameObject DialogueBox;
+    public GameObject CharacterSpeakingBox;
+    public GameObject HintBox;
+    public GameObject HintTitle;
     public AudioClip walkSound1;
     public AudioClip walkSound2;
+
     bool gameWon = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,6 +46,11 @@ public class FPSColliderScript : MonoBehaviour
     {
         GameOverScreen.SetActive(false);
         GameWonScreen.SetActive(false);
+
         NormalHUD.SetActive(true);
+        DialogueBox.SetActive(false);
+        CharacterSpeakingBox.SetActive(false);
+        HintBox.SetActive(false);
+        HintTitle.SetActive(false);
     }
 }
