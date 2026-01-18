@@ -18,9 +18,10 @@ public class TorchColliderScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "GhostNPC"){
+        if(other.gameObject.name == "GhostNPCTrigger"){
             
             DialogueBox.SetActive(true);
+            
 
         } 
 

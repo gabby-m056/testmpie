@@ -29,12 +29,45 @@ public class DialogueUpdateScript : MonoBehaviour
 
         if (dialogueStarted == false && gameObject.activeInHierarchy)
         {
+            dialogueStarted = true;
             StartDialogue();
+        }
+
+        if(dialogueStarted == true && gameObject.activeInHierarchy)
+        {
+            ContinueDialogue();
         }
     }
 
     void StartDialogue()
     {
         dialogue = dialogueList[0];
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    void ContinueDialogue()
+    {
+        int i=1;
+        while (i<dialogueList.Count - 1)
+        {
+            dialogue = dialogueList[i];
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                i++;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            gameObject.SetActive(false);
+        }
+
+        
+
+        
+        
     }
 }

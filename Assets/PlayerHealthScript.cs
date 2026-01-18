@@ -18,7 +18,7 @@ public class PlayerHealthScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //https://learn.microsoft.com/en-us/dotnet/api/system.environment.tickcount?view=net-10.0
+        
         DateTime msPassed = DateTime.Now;
         Debug.Log(msPassed);
         
@@ -52,9 +52,6 @@ public class PlayerHealthScript : MonoBehaviour
             Debug.Log("CHANGEEEEE");
         }
 
-        if(other.gameObject.name == "key")
-        {
-            other.gameObject.SetActive(false);
-        }
+        
     }
 }

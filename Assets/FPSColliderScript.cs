@@ -38,7 +38,15 @@ public class FPSColliderScript : MonoBehaviour
             gameWon = true;
         } 
 
-       
+       if(other.gameObject.name == "key")
+        {
+            other.gameObject.SetActive(false);
+        }
+
+        if(other.gameObject.name == "GhostNPCTrigger")
+        {
+            DialogueBox.SetActive(true);
+        }
     
     }
 
