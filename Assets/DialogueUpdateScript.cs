@@ -7,6 +7,9 @@ public class DialogueUpdateScript : MonoBehaviour
     public GameObject CharacterSpeakingBox;
     string dialogue;
     bool dialogueStarted = false;
+    bool dialogueToContinue = false;
+
+    bool enterPressed = false;
 
     [TextArea]
     public List<string> dialogueList;
@@ -37,13 +40,19 @@ public class DialogueUpdateScript : MonoBehaviour
         {
             ContinueDialogue();
         }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            enterPressed = true;
+        }
     }
 
     void StartDialogue()
     {
         dialogue = dialogueList[0];
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (enterPressed)
         {
+            dialogueToContinue = true;
             gameObject.SetActive(false);
         }
     }
