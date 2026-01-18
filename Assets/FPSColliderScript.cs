@@ -5,6 +5,8 @@ public class FPSColliderScript : MonoBehaviour
     public GameObject GameOverScreen;
     public GameObject NormalHUD;
     public GameObject GameWonScreen;
+    public AudioClip walkSound1;
+    public AudioClip walkSound2;
     bool gameWon = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

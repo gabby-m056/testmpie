@@ -51,5 +51,10 @@ public class PlayerHealthScript : MonoBehaviour
 
             Debug.Log("CHANGEEEEE");
         }
+
+        if(other.gameObject.name == "key")
+        {
+            other.gameObject.SetActive(false);
+        }
     }
 }

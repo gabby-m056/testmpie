@@ -5,16 +5,21 @@ using System.Collections.Generic;
 public class bauScript : MonoBehaviour {
 
 
-	public string player = "Player";
+	//public string player = "Player";
 	public float velocity = 10.0f;
 
 	public GameObject target;
 	public List<GameObject> Contents;
+	//modification by me
+	public GameObject player;
+	public GameObject key;
+	public GameObject pear;
+
 
 	bool abrir = false;
 	GameObject alvo;
 	bool cheio = true;
-
+	bool canOpenChest=false;
 	//rotatação max  -60 -900 -900
 	//0, -720, -720
 
@@ -25,15 +30,31 @@ public class bauScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(Input.GetKeyDown(KeyCode.E))
+		{
+			canOpenChest=true;
+		}
 
 		if (abrir) {
+			
 			if (this.transform.rotation.x > -0.9) {
 				this.transform.Rotate (new Vector3 (-velocity * Time.deltaTime * 2, 0.0f, 0.0f));
 				if(this.transform.rotation.x < -0.45 && cheio == true){
 					liberar ();
 					cheio = false;
 				}
-			} 
+			}
+			//modification by Me
+
+			if (Input.GetKeyDown(KeyCode.P))
+			{
+				key.gameObject.SetActive(false);
+				
+				player.GetComponent<PlayerHealthScript>().playerHealth += 5;
+				pear.gameObject.SetActive(false);
+
+			}
+			//my modification ends
 		} else {
 			if (this.transform.rotation.x < 0) {
 				this.transform.Rotate (new Vector3 (velocity * Time.deltaTime * 2 , 0.0f, 0.0f));
@@ -54,7 +75,8 @@ public class bauScript : MonoBehaviour {
 		}
 
 
-		if (Input.GetKeyDown (KeyCode.E)) {
+		if (canOpenChest==true)
+		{
 				abrir = true;
 				Destroy (alvo.gameObject);
 		}
@@ -66,7 +88,7 @@ public class bauScript : MonoBehaviour {
 	void OnTriggerExit(Collider other) {
 
 		Destroy (alvo.gameObject);
-		
+		canOpenChest = false;
 		abrir = false;
 	}
 
