@@ -33,7 +33,13 @@ public class DialogueUpdateScript : MonoBehaviour
         if (dialogueStarted == false && gameObject.activeInHierarchy)
         {
             dialogueStarted = true;
-            StartDialogue();
+            dialogue = dialogueList[0];
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                Debug.Log("slay");
+                dialogueToContinue = true;
+                gameObject.SetActive(false);
+            }
         }
 
         if(dialogueStarted == true && gameObject.activeInHierarchy)
@@ -41,21 +47,13 @@ public class DialogueUpdateScript : MonoBehaviour
             ContinueDialogue();
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        /*if (Input.GetKeyDown(KeyCode.Return))
         {
             enterPressed = true;
-        }
+        }*/
     }
 
-    void StartDialogue()
-    {
-        dialogue = dialogueList[0];
-        if (enterPressed)
-        {
-            dialogueToContinue = true;
-            gameObject.SetActive(false);
-        }
-    }
+    
 
     void ContinueDialogue()
     {
