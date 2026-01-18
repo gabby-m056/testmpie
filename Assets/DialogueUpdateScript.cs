@@ -51,7 +51,8 @@ public class DialogueUpdateScript : MonoBehaviour
     void ContinueDialogue()
     {
         int i=1;
-        while (i<dialogueList.Count - 1)
+        Debug.Log("reach");
+        /*while (i<dialogueList.Count - 1)
         {
             dialogue = dialogueList[i];
             if (Input.GetKeyDown(KeyCode.Return))
@@ -63,7 +64,7 @@ public class DialogueUpdateScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             gameObject.SetActive(false);
-        }
+        }*/
 
         
 
