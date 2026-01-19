@@ -20,6 +20,7 @@ public class TorchColliderScript : MonoBehaviour
     {
         if(other.gameObject.name == "GhostNPCTrigger"){
             
+            Debug.Log("triggerstart");
             DialogueBox.SetActive(true);
             
 

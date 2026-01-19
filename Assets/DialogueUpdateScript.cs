@@ -27,6 +27,11 @@ public class DialogueUpdateScript : MonoBehaviour
         {
             dialogue = dialogueList[0];
         }
+
+        if (dialogueStarted && dialogueToContinue)
+        {
+            Debug.Log("continue dialogue onenable");
+        }
         
         
     }
@@ -44,7 +49,14 @@ public class DialogueUpdateScript : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            HideDialogue();
+            if (dialogueStarted == false)
+            {
+                HideDialogue();
+            }
+            if(dialogueStarted && dialogueToContinue){
+                Debug.Log("continue dialogue enter");
+            }
+           
         }
 
        /* if (dialogueStarted == false && gameObject.activeInHierarchy)

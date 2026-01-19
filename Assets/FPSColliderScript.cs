@@ -45,6 +45,7 @@ public class FPSColliderScript : MonoBehaviour
 
         if(other.gameObject.name == "GhostNPCTrigger")
         {
+            Debug.Log("triggercontinue");
             DialogueBox.SetActive(true);
         }
     
