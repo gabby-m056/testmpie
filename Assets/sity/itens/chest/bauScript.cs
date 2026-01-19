@@ -17,9 +17,11 @@ public class bauScript : MonoBehaviour {
 	public GameObject hintBox;
 
 	bool abrir = false;
+
 	GameObject alvo;
 	bool cheio = true;
 	bool canOpenChest=false;
+	bool pickUpHintCalled = false;
 	//rotatação max  -60 -900 -900
 	//0, -720, -720
 
@@ -40,12 +42,24 @@ public class bauScript : MonoBehaviour {
 		if (abrir) {
 			
 			if (this.transform.rotation.x > -0.9) {
+				
 				this.transform.Rotate (new Vector3 (-velocity * Time.deltaTime * 2, 0.0f, 0.0f));
 				if(this.transform.rotation.x < -0.45 && cheio == true){
 					liberar ();
 					cheio = false;
+					
 				}
 			}
+			if(this.transform.rotation.x <= -0.9 && pickUpHintCalled==false)
+			{
+				hintBox.SetActive(true);
+				hintBox.GetComponent<HintUpdateScript>().PickUpItems();
+				pickUpHintCalled = true;
+			}
+
+
+
+			
 			//modification by Me
 
 			if (Input.GetKeyDown(KeyCode.P))
@@ -54,6 +68,7 @@ public class bauScript : MonoBehaviour {
 				
 				player.GetComponent<PlayerHealthScript>().playerHealth += 5;
 				pear.gameObject.SetActive(false);
+				hintBox.GetComponent<HintUpdateScript>().ClearHint();
 
 			}
 			//my modification ends
@@ -105,7 +120,7 @@ public class bauScript : MonoBehaviour {
 
 
 	public void liberar(){
-
+		hintBox.GetComponent<HintUpdateScript>().ClearHint();
 		Vector3 pos = this.transform.position;
 		//pos.x = 0;
 		pos.y += 0.4f;
@@ -124,4 +139,7 @@ public class bauScript : MonoBehaviour {
 
 
 	}
-}
+
+}	
+
+	

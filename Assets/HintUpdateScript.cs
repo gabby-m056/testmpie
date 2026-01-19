@@ -37,12 +37,18 @@ public class HintUpdateScript : MonoBehaviour
         txt.text = hint;
     }
 
+    public void ClearHint()
+    {
+        hint ="";
+        gameObject.SetActive(false);
+    }
+
     public void OpenChest()
     {
         hint = hintList[0];
     }
 
-    void PickUpItems()
+    public void PickUpItems()
     {
         hint = hintList[1];
     }
