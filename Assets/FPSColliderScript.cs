@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class FPSColliderScript : MonoBehaviour
 {
+    public Collider parentCollider;
+    //public C parentCollider;
+    
     public GameObject GameOverScreen;
     public GameObject NormalHUD;
     public GameObject GameWonScreen;
@@ -31,9 +34,10 @@ public class FPSColliderScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        
         if(other.gameObject.name == "PlayerBed"){
             
-            Debug.Log("Hit");
+            
             other.gameObject.SetActive(false)  ;
             gameWon = true;
         } 
@@ -43,11 +47,7 @@ public class FPSColliderScript : MonoBehaviour
             other.gameObject.SetActive(false);
         }
 
-        if(other.gameObject.name == "GhostNPCTrigger")
-        {
-            Debug.Log("triggercontinue");
-            DialogueBox.SetActive(true);
-        }
+        
     
     }
 

@@ -504,6 +504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 255136167}
   - component: {fileID: 255136168}
+  - component: {fileID: 255136169}
   m_Layer: 0
   m_Name: GhostNPCTrigger
   m_TagString: Untagged
@@ -547,6 +548,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9999995, y: 1.7196544, z: 1.7252781}
   m_Center: {x: 0.00000003214621, y: 0.40818143, z: 0.36263898}
+--- !u!114 &255136169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255136166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3dae9996e021d44b8cf1fa1e7950c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentCollider: {fileID: 316153242}
+  childCollider: {fileID: 647187336}
+  DialogueBox: {fileID: 1384873977}
 --- !u!1 &308309534 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1818305758079578, guid: 83e9a4cc29228e449b4e3c86a792e188, type: 3}
@@ -591,6 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d830595a42921bc4081d98f215b8d4db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentCollider: {fileID: 316153242}
   GameOverScreen: {fileID: 2143453105}
   NormalHUD: {fileID: 1301104076}
   GameWonScreen: {fileID: 735165443}
@@ -856,6 +873,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!143 &316153242 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 9156347144040445545, guid: c82236c16aae9d34fbd437f8dea6e2c9, type: 3}
+  m_PrefabInstance: {fileID: 8164176}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &323005515 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4876623560501770, guid: 9657eec125d1ed4408cd77a5ad62be9d, type: 3}
