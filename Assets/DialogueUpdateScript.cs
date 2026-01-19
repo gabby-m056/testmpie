@@ -9,7 +9,8 @@ public class DialogueUpdateScript : MonoBehaviour
     bool dialogueStarted = false;
     bool dialogueToContinue = false;
 
-    bool enterPressed = false;
+    int dialogueNo = 0;
+    bool finishDialogue = false;
 
     [TextArea]
     public List<string> dialogueList;
@@ -23,15 +24,17 @@ public class DialogueUpdateScript : MonoBehaviour
     //called when component is first enabled - https://docs.unity3d.com/6000.3/Documentation/ScriptReference/MonoBehaviour.OnEnable.html
     void OnEnable()
     {
-        if(dialogueStarted == false)
+        /*if(dialogueStarted == false)
         {
             dialogue = dialogueList[0];
-        }
+        }*/
 
-        if (dialogueStarted && dialogueToContinue)
+        dialogue = dialogueList[dialogueNo];
+
+        /*if (dialogueStarted && dialogueToContinue)
         {
-            Debug.Log("continue dialogue onenable");
-        }
+            dialogue = dialogue
+        }*/
         
         
     }
@@ -49,13 +52,27 @@ public class DialogueUpdateScript : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (dialogueStarted == false)
+            if(dialogueNo <= dialogueList.Count)
+            {
+                dialogueNo++;
+                if(dialogueNo == dialogueList.Count)
+                {
+                    finishDialogue = true;
+
+                }
+                else
+                {
+                    dialogue = dialogueList[dialogueNo];
+                }
+                
+                
+            }
+            
+            if (dialogueStarted == false|| finishDialogue==true)
             {
                 HideDialogue();
             }
-            if(dialogueStarted && dialogueToContinue){
-                Debug.Log("continue dialogue enter");
-            }
+           
            
         }
 
