@@ -87,6 +87,7 @@ public class bauScript : MonoBehaviour {
 			{
 				//enable hint script
 				hintBox.SetActive(true);
+				hintBox.GetComponent<HintUpdateScript>().OpenChest();
 			}
 		}
 		

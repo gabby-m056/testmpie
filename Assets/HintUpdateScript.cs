@@ -37,5 +37,13 @@ public class HintUpdateScript : MonoBehaviour
         txt.text = hint;
     }
 
-    
+    public void OpenChest()
+    {
+        hint = hintList[0];
+    }
+
+    void PickUpItems()
+    {
+        hint = hintList[1];
+    }
 }
