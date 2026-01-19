@@ -14,7 +14,7 @@ public class bauScript : MonoBehaviour {
 	public GameObject player;
 	public GameObject key;
 	public GameObject pear;
-
+	public GameObject hintBox;
 
 	bool abrir = false;
 	GameObject alvo;
@@ -34,6 +34,8 @@ public class bauScript : MonoBehaviour {
 		{
 			canOpenChest=true;
 		}
+
+		
 
 		if (abrir) {
 			
@@ -74,12 +76,20 @@ public class bauScript : MonoBehaviour {
 			alvo = Instantiate (target, pos, Quaternion.identity) as GameObject;
 		}
 
-
-		if (canOpenChest==true)
+		if(other.gameObject.name == "FirstPersonController")
 		{
-				abrir = true;
-				Destroy (alvo.gameObject);
+			if (canOpenChest==true)
+			{
+					abrir = true;
+					Destroy (alvo.gameObject);
+			}
+			else
+			{
+				//enable hint script
+				hintBox.SetActive(true);
+			}
 		}
+		
 
 
 

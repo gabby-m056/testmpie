@@ -10,6 +10,8 @@ public class TextUpdateScript : MonoBehaviour
         
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {

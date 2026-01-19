@@ -12,6 +12,10 @@ public class FPSColliderScript : MonoBehaviour
     public GameObject CharacterSpeakingBox;
     public GameObject HintBox;
     public GameObject HintTitle;
+
+    public GameObject heartImage;
+    public GameObject healthText;
+    bool healthEnabled = false;
     public AudioClip walkSound1;
     public AudioClip walkSound2;
 
@@ -25,11 +29,26 @@ public class FPSColliderScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (healthEnabled == false)
+        {
+            if(DialogueBox.GetComponent<DialogueUpdateScript>().startPlayerHealth == true)
+            {
+                Debug.Log("enable health");
+                GetComponent<PlayerHealthScript>().enabled = true;
+                healthText.SetActive(true);
+                heartImage.SetActive(true);
+                healthText.GetComponent<TextUpdateScript>().enabled = true;
+                healthEnabled = true;
+            }
+        }
+
           if(gameWon == true)
         {
             GameWonScreen.SetActive(true);
             NormalHUD.SetActive(false);
         }
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -38,7 +57,7 @@ public class FPSColliderScript : MonoBehaviour
         if(other.gameObject.name == "PlayerBed"){
             
             
-            other.gameObject.SetActive(false)  ;
+            other.gameObject.SetActive(false);
             gameWon = true;
         } 
 
@@ -55,8 +74,12 @@ public class FPSColliderScript : MonoBehaviour
     {
         GameOverScreen.SetActive(false);
         GameWonScreen.SetActive(false);
-
+        GetComponent<PlayerHealthScript>().enabled = false;
+        
         NormalHUD.SetActive(true);
+        healthText.SetActive(false);
+        heartImage.SetActive(false);
+        healthText.GetComponent<TextUpdateScript>().enabled = false;
         DialogueBox.SetActive(false);
         CharacterSpeakingBox.SetActive(false);
         HintBox.SetActive(false);

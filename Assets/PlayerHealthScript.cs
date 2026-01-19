@@ -3,6 +3,7 @@ using System;
 
 public class PlayerHealthScript : MonoBehaviour
 {
+    
     public GameObject GameOverScreen;
     public GameObject NormalHUD;
     public int playerHealth= 50;
@@ -19,19 +20,23 @@ public class PlayerHealthScript : MonoBehaviour
     void Update()
     {
         
-        DateTime msPassed = DateTime.Now;
-        Debug.Log(msPassed);
+        
+            DateTime msPassed = DateTime.Now;
+            Debug.Log(msPassed);
+            
+            
+            int elapsed = Convert.ToInt32((msPassed-lastTrigger).TotalMilliseconds);
+            Debug.Log(elapsed);
+            if (elapsed>=intervalMilliseconds)
+            {
+            
+                //if 7 seconds have passed 1 health is taken off the player
+                playerHealth--;
+                lastTrigger = msPassed;
+            }
         
         
-        int elapsed = Convert.ToInt32((msPassed-lastTrigger).TotalMilliseconds);
-        Debug.Log(elapsed);
-        if (elapsed>=intervalMilliseconds)
-        {
-           
-            //if 7 seconds have passed 1 health is taken off the player
-            playerHealth--;
-            lastTrigger = msPassed;
-        }
+        
 
         if (playerHealth == 0)
         {
@@ -43,6 +48,7 @@ public class PlayerHealthScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        //Debug.Log(gameObject.name);
         if(other.gameObject.tag == "Pear")
         {
             playerHealth += healthFromPear;

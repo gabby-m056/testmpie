@@ -615,6 +615,8 @@ MonoBehaviour:
   CharacterSpeakingBox: {fileID: 1938303093}
   HintBox: {fileID: 341624553}
   HintTitle: {fileID: 2130542260}
+  heartImage: {fileID: 2117752000}
+  healthText: {fileID: 1160854776}
   walkSound1: {fileID: 8300000, guid: 557e96b16076cb84285c90941906b44c, type: 3}
   walkSound2: {fileID: 8300000, guid: c895c66a48b24dc459225afaabcb51f9, type: 3}
 --- !u!114 &316153231
@@ -1161,7 +1163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381eff8b6d8064f4498143a8b5839404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hintTitle: {fileID: 2130542260}
   hintList:
+  - Press E to open the chest
   - Press P to pick up key and pear
   - 'Key is needed to unlock door
 
@@ -7352,6 +7356,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 107670, guid: b00e585dba14d58489ab5b3ac617218b, type: 3}
     - target: {fileID: 11420674, guid: fc985a152699d6049ab671803ee8d934, type: 3}
+      propertyPath: hintBox
+      value: 
+      objectReference: {fileID: 341624553}
+    - target: {fileID: 11420674, guid: fc985a152699d6049ab671803ee8d934, type: 3}
       propertyPath: velocity
       value: 20
       objectReference: {fileID: 0}
@@ -8500,6 +8508,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterSpeakingBox: {fileID: 1938303093}
+  disableTorchCollider: 0
+  startPlayerHealth: 0
   dialogueList:
   - 'Hey you!
 
@@ -8515,9 +8525,8 @@ MonoBehaviour:
     is so you are going to have to be quick and find it yourself!
   - 'My house is somewhere nearby too so hopefully you''ll be able to find it! There
     are also blue pears around and if you eat them you will be given a health boost! '
-  - My house is somewhere nearby too so hopefully you'll be able to find it! There
-    are also blue pears around and if you eat them you will be given a health boost!
-    Now go quick before the gas poisons you - Good Luck!!!!
+  - Just stand on the pears to grab them and eat them. Now go quick before the gas
+    poisons you - Good Luck!!!!
 --- !u!1001 &1411556700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9480,7 +9489,6 @@ GameObject:
   - component: {fileID: 1830312282}
   - component: {fileID: 1830312284}
   - component: {fileID: 1830312283}
-  - component: {fileID: 1830312285}
   m_Layer: 5
   m_Name: HintTitleText
   m_TagString: Untagged
@@ -9549,19 +9557,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830312281}
   m_CullTransparentMesh: 1
---- !u!114 &1830312285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830312281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 381eff8b6d8064f4498143a8b5839404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hintList: []
 --- !u!1 &1833024978 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1538974187357688, guid: 83e9a4cc29228e449b4e3c86a792e188, type: 3}
@@ -9919,7 +9914,7 @@ GameObject:
   - component: {fileID: 2117752003}
   - component: {fileID: 2117752002}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: HeartImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

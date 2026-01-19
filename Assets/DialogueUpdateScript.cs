@@ -8,7 +8,8 @@ public class DialogueUpdateScript : MonoBehaviour
     string dialogue;
     bool dialogueStarted = false;
     bool dialogueToContinue = false;
-
+    public bool disableTorchCollider = false;
+    public bool startPlayerHealth = false;
     int dialogueNo = 0;
     bool finishDialogue = false;
 
@@ -106,8 +107,14 @@ public class DialogueUpdateScript : MonoBehaviour
             dialogueStarted = true;
             dialogueToContinue = true;
         }
-        gameObject.SetActive(false);
+        else
+        {
+            disableTorchCollider = true;
+            startPlayerHealth = true;
+        }
+        
         CharacterSpeakingBox.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     void OnDisable()
