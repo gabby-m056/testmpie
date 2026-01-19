@@ -13,34 +13,45 @@ public class DialogueUpdateScript : MonoBehaviour
 
     [TextArea]
     public List<string> dialogueList;
+    Text txt;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+       txt = GetComponentInChildren<Text>(true);
+    }
+
+    //called when component is first enabled - https://docs.unity3d.com/6000.3/Documentation/ScriptReference/MonoBehaviour.OnEnable.html
+    void OnEnable()
+    {
+        if(dialogueStarted == false)
+        {
+            dialogue = dialogueList[0];
+        }
+        
         
     }
 
     // Update is called once per frame
     void Update()
     {   //https://docs.unity3d.com/ScriptReference/Component.GetComponentInChildren.html
-        Text txt = GetComponentInChildren<Text>(true);
+        
         txt.text = dialogue;
 
         if (gameObject.activeInHierarchy)
         {
             CharacterSpeakingBox.SetActive(true);
         }
-
-        if (dialogueStarted == false && gameObject.activeInHierarchy)
+        
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            dialogueStarted = true;
-            dialogue = dialogueList[0];
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                Debug.Log("slay");
-                dialogueToContinue = true;
-                gameObject.SetActive(false);
-            }
+            HideDialogue();
         }
+
+       /* if (dialogueStarted == false && gameObject.activeInHierarchy)
+        {
+            
+           
+        }*/
 
         if(dialogueStarted == true && gameObject.activeInHierarchy)
         {
@@ -53,7 +64,27 @@ public class DialogueUpdateScript : MonoBehaviour
         }*/
     }
 
-    
+    void ShowDialogue()
+    {
+        
+    }
+
+    void HideDialogue()
+    {
+        Debug.Log("slay");
+        if (dialogueStarted == false)
+        {
+            dialogueStarted = true;
+            dialogueToContinue = true;
+        }
+        gameObject.SetActive(false);
+        CharacterSpeakingBox.SetActive(false);
+    }
+
+    void OnDisable()
+    {
+        
+    }
 
     void ContinueDialogue()
     {
