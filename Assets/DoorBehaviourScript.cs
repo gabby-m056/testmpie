@@ -3,6 +3,7 @@ using UnityEngine;
 public class DoorBehaviourScript : MonoBehaviour
 {
     public GameObject key;
+    public GameObject hintBox;
     Vector3 defaultPosition = new Vector3 (424.6f, 0.876f, 375.953f);
     Vector3 rotatedPosition = new Vector3 (423.8f, 0.876f, 375.953f);
 
@@ -28,9 +29,22 @@ public class DoorBehaviourScript : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         bool doorOpened = false;
+        if(doorOpened == false)
+        {
+            hintBox.SetActive(true);
+            if(key.gameObject.activeSelf == false)
+            {
+                hintBox.GetComponent<HintUpdateScript>().CanOpenDoor();
+            }
+            else
+            {
+                hintBox.GetComponent<HintUpdateScript>().UnableOpenDoor();
+            }
+            
+        }
         Transform t = gameObject.transform;
         //Input.GetKeyDown(KeyCode.O)&& 
-        if (other.gameObject.name==player.gameObject.name )
+        if (other.gameObject.name==player.gameObject.name)
         {
             Debug.Log("reach");
             if (doorToggled)
@@ -53,5 +67,10 @@ public class DoorBehaviourScript : MonoBehaviour
             
         }
         
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        hintBox.GetComponent<HintUpdateScript>().ClearHint();
     }
 }

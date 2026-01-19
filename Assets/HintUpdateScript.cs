@@ -52,4 +52,14 @@ public class HintUpdateScript : MonoBehaviour
     {
         hint = hintList[1];
     }
+
+    public void CanOpenDoor()
+    {
+        hint = hintList[3];
+    }
+
+    public void UnableOpenDoor()
+    {
+        hint = hintList[2];
+    }
 }
