@@ -16,8 +16,7 @@ public class FPSColliderScript : MonoBehaviour
     public GameObject heartImage;
     public GameObject healthText;
     bool healthEnabled = false;
-    public AudioClip walkSound1;
-    public AudioClip walkSound2;
+   
     Transform t;
     Vector3 prevPosition;
 
@@ -67,6 +66,14 @@ public class FPSColliderScript : MonoBehaviour
           if(gameWon == true)
         {
             GameWonScreen.SetActive(true);
+            GetComponent<CharacterController>().enabled= false;
+            GetComponent<EasyPeasyFirstPersonController.FirstPersonController>().enabled = false;
+            //https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Cursor-lockState.html#:~:text=A%20locked%20cursor%20is%20positioned,from%20interacting%20with%20UI%20elements.
+            //https://docs.unity3d.com/6000.3/Documentation/ScriptReference/CursorLockMode.html
+            Cursor.lockState = CursorLockMode.None;
+        
+            // This makes it visible again
+            Cursor.visible = true;
             NormalHUD.SetActive(false);
         }
 
