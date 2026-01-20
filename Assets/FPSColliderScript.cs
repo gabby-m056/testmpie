@@ -18,17 +18,39 @@ public class FPSColliderScript : MonoBehaviour
     bool healthEnabled = false;
     public AudioClip walkSound1;
     public AudioClip walkSound2;
+    Transform t;
+    Vector3 prevPosition;
+
+    //public List<AudioClip> footsteps;
 
     bool gameWon = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        t = gameObject.transform;
+        prevPosition = t.position;
         Restart();
     }
 
     // Update is called once per frame
     void Update()
     {
+        bool canPlay = CheckToPlayFootsteps();
+
+        if (canPlay)
+        {
+            AudioSource fs = GetComponent<AudioSource>();
+            https://docs.unity3d.com/6000.3/Documentation/ScriptReference/AudioSource.PlayOneShot.html
+            if(fs.isPlaying == false)
+            {
+                fs.PlayOneShot(walkSound1,0.8f);
+            }
+            
+            Debug.Log("test "+fs.isPlaying);
+            //fs.PlayOneShot(walkSound2,0.8f);
+            //walkSound1.Play();
+            //walkSound2.Play();
+        }
 
         if (healthEnabled == false)
         {
@@ -84,5 +106,22 @@ public class FPSColliderScript : MonoBehaviour
         CharacterSpeakingBox.SetActive(false);
         HintBox.SetActive(false);
         HintTitle.SetActive(false);
+    }
+
+    bool CheckToPlayFootsteps()
+    {
+        bool canPlay;
+        Vector3 currentPosition = t.position;
+        //Debug.Log("prev "+prevPosition);
+        if(currentPosition == prevPosition)
+        {
+           canPlay = false;
+        }
+        else
+        {
+            canPlay = true;
+        }
+        prevPosition = currentPosition;
+        return canPlay;
     }
 }
