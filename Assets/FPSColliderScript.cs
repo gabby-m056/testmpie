@@ -21,8 +21,6 @@ public class FPSColliderScript : MonoBehaviour
     Transform t;
     Vector3 prevPosition;
 
-    //public List<AudioClip> footsteps;
-
     bool gameWon = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,10 +41,11 @@ public class FPSColliderScript : MonoBehaviour
             https://docs.unity3d.com/6000.3/Documentation/ScriptReference/AudioSource.PlayOneShot.html
             if(fs.isPlaying == false)
             {
-                fs.PlayOneShot(walkSound1,0.8f);
+                fs.Play();
             }
             
-            Debug.Log("test "+fs.isPlaying);
+           
+            //Debug.Log("test "+fs.isPlaying);
             //fs.PlayOneShot(walkSound2,0.8f);
             //walkSound1.Play();
             //walkSound2.Play();
