@@ -633,7 +633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOverScreen: {fileID: 2143453105}
   NormalHUD: {fileID: 1301104076}
-  playerHealth: 50
+  playerHealth: 41
   healthFromPear: 5
   intervalMilliseconds: 7000
 --- !u!54 &316153232
@@ -8878,6 +8878,74 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1156361355}
   m_SourcePrefab: {fileID: 100100000, guid: 0a4c48dc7a4c13d42bed17b63ccdbc6a, type: 3}
+--- !u!1 &1490576578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1490576581}
+  - component: {fileID: 1490576580}
+  - component: {fileID: 1490576582}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1490576580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490576578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1490576581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490576578}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1490576582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490576578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1 &1493294470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1126315821067582, guid: 83e9a4cc29228e449b4e3c86a792e188, type: 3}
@@ -9417,7 +9485,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.9216981, g: 0.84339625, b: 1, a: 1}
     m_HighlightedColor: {r: 0.8792453, g: 0.45621213, b: 0.6768262, a: 1}
     m_PressedColor: {r: 0.77647066, g: 0.04705883, b: 0.427451, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.77647066, g: 0.04705883, b: 0.427451, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -9436,7 +9504,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1772604026}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1772604028}
+        m_TargetAssemblyTypeName: ButtonRestartScript, Assembly-CSharp
+        m_MethodName: ButtonIsClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1772604026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9487,7 +9567,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c17620fded25be4180763b0e81e9861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btn: {fileID: 1772604025}
 --- !u!4 &1811114757 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4609281226093430, guid: 9657eec125d1ed4408cd77a5ad62be9d, type: 3}
@@ -10218,3 +10297,4 @@ SceneRoots:
   - {fileID: 1909595995}
   - {fileID: 810798441}
   - {fileID: 1411556700}
+  - {fileID: 1490576581}
