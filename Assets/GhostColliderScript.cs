@@ -8,6 +8,14 @@ public class GhostColliderScript : MonoBehaviour
     
     public GameObject DialogueBox;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+    enum GhostState
+    {
+        GIVEINSTRUCTIONS,
+        WANDERING
+    };
+
+    GhostState state = GhostState.GIVEINSTRUCTIONS;
     void Start()
     {
         
@@ -17,15 +25,34 @@ public class GhostColliderScript : MonoBehaviour
     void Update()
     {
         
+        UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+        if (agent.remainingDistance <= 1.0f&&state == GhostState.WANDERING)
+        {
+            float x = Random.Range(-20.0f,200.0f);
+            float z =Random.Range(-20.0f,200.0f);
+
+            agent.destination = new Vector3(x,0.0f,z);
+        }
+        
     }
 
     void OnTriggerEnter(Collider other)
     {
-       
-        if(other.gameObject.name == "FirstPersonController"&& other != childCollider && other == parentCollider)
+        if(state == GhostState.GIVEINSTRUCTIONS)
+        {
+            if(other.gameObject.name == "FirstPersonController"&& other != childCollider && other == parentCollider)
         {
             Debug.Log("triggercontinue");
             DialogueBox.SetActive(true);
         }
+        }
+       
+        
+    }
+
+    public void instructionsFinished()
+    {
+        state = GhostState.WANDERING;
     }
 }

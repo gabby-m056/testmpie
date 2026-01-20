@@ -84,15 +84,17 @@ public class bauScript : MonoBehaviour {
 
 	void OnTriggerStay(Collider other) { 
 
-		if (alvo == null && abrir == false) {
+		
+
+		if(other.gameObject.name == "FirstPersonController"&&abrir==false)
+		{
+			if (alvo == null) {
 			Vector3 pos = this.transform.position;
 			pos.y += 0.5f;
 			pos.z += 0.25f;
 			alvo = Instantiate (target, pos, Quaternion.identity) as GameObject;
-		}
+			}
 
-		if(other.gameObject.name == "FirstPersonController")
-		{
 			if (canOpenChest==true)
 			{
 					abrir = true;
@@ -113,9 +115,9 @@ public class bauScript : MonoBehaviour {
 
 	void OnTriggerExit(Collider other) {
 
-		Destroy (alvo.gameObject);
+		//Destroy (alvo.gameObject);
 		canOpenChest = false;
-		abrir = false;
+		
 	}
 
 

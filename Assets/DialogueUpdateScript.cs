@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class DialogueUpdateScript : MonoBehaviour
 {
     public GameObject CharacterSpeakingBox;
+    public GameObject Ghost;
     string dialogue;
     bool dialogueStarted = false;
     bool dialogueToContinue = false;
@@ -53,26 +54,33 @@ public class DialogueUpdateScript : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            if (dialogueStarted == false|| finishDialogue==true)
+            {
+                if (finishDialogue)
+                {
+                    Ghost.GetComponent<GhostColliderScript>().instructionsFinished();
+                }
+                HideDialogue();
+                
+            }
             if(dialogueNo <= dialogueList.Count)
             {
-                dialogueNo++;
-                if(dialogueNo == dialogueList.Count)
+                if(dialogueNo == dialogueList.Count-1)
                 {
                     finishDialogue = true;
-
+                    Debug.Log("finishdialogue");
                 }
                 else
                 {
+                    dialogueNo++;
+                    Debug.Log("Dialogue count : "+ dialogueNo);
                     dialogue = dialogueList[dialogueNo];
                 }
                 
                 
             }
             
-            if (dialogueStarted == false|| finishDialogue==true)
-            {
-                HideDialogue();
-            }
+            
            
            
         }
@@ -101,7 +109,7 @@ public class DialogueUpdateScript : MonoBehaviour
 
     void HideDialogue()
     {
-        Debug.Log("slay");
+        //Debug.Log("slay");
         if (dialogueStarted == false)
         {
             dialogueStarted = true;
@@ -124,8 +132,8 @@ public class DialogueUpdateScript : MonoBehaviour
 
     void ContinueDialogue()
     {
-        int i=1;
-        Debug.Log("reach");
+        //int i=1;
+        //Debug.Log("reach");
         /*while (i<dialogueList.Count - 1)
         {
             dialogue = dialogueList[i];
