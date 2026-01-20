@@ -41,8 +41,15 @@ public class PlayerHealthScript : MonoBehaviour
         if (playerHealth == 0)
         {
             GameOverScreen.SetActive(true);
+            GetComponent<CharacterController>().enabled= false;
+            GetComponent<EasyPeasyFirstPersonController.FirstPersonController>().enabled = false;
+            Cursor.lockState = CursorLockMode.None;
+        
+            // This makes it visible again
+            Cursor.visible = true;
+            
             NormalHUD.SetActive(false);
-            GameOverScreen.GetComponent<GameOverScript>().GameIsOver();
+            //GameOverScreen.GetComponent<GameOverScript>().GameIsOver();
             
         }
         

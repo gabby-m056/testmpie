@@ -8,9 +8,16 @@ public class GameOverScript : MonoBehaviour
         
     }
 
+    void OnEnable()
+    {
+        Debug.Log("GOScript");
+        GameIsOver();
+    }
+
     // Update is called once per frame
     void Update()
     {
+
         GameIsOver();
     }
 
