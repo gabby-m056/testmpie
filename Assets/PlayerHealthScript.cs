@@ -42,6 +42,8 @@ public class PlayerHealthScript : MonoBehaviour
         {
             GameOverScreen.SetActive(true);
             NormalHUD.SetActive(false);
+            GameOverScreen.GetComponent<GameOverScript>().GameIsOver();
+            
         }
         
     }
