@@ -22,12 +22,19 @@ public class FPSMovementScript : MonoBehaviour
    
     Transform t;
     Vector3 prevPosition;
-
+    AudioSource fs;
+    CharacterController controller;
+    bool canPlay = false;
+    bool canJump = false;
+    bool jumpAlreadyPlayed=false;
+    bool isGroundedBefore = false;
 
     bool gameWon = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        fs = GetComponent<AudioSource>();
+        controller = GetComponent<CharacterController>();
         t = gameObject.transform;
         prevPosition = t.position;
         Restart();
@@ -36,9 +43,10 @@ public class FPSMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool canPlay = false;
-        bool canJump = false;
-        bool jumpAlreadyPlayed=false;
+        canJump = false;
+        canPlay = false;
+
+       // jumpAlreadyPlayed = false;
         /**
             * This line of code is based upon syntax from the Unity Script Reference
             *
@@ -48,15 +56,21 @@ public class FPSMovementScript : MonoBehaviour
             * Accessed: 20/01/2026
         */
         
-        if(GetComponent<CharacterController>().isGrounded == false/*line of code reference ends*/) 
+        //if(controller.isGrounded == false/*line of code reference ends*/) 
+        //{
+
+        //check if grounded BEFORE pressing space
+        
+        if (Input.GetKeyDown(KeyCode.Space)&&controller.isGrounded==false&&isGroundedBefore==true)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                canJump = true;
-                canPlay = true;
-            }
+            Debug.Log("Space Pressed");
             
+            jumpAlreadyPlayed = false;
+            canJump = true;
+            canPlay = true;
         }
+            
+        //}
         else
         {
             canPlay = CheckToPlayFootsteps();
@@ -66,7 +80,7 @@ public class FPSMovementScript : MonoBehaviour
 
         if (canPlay)
         {
-            AudioSource fs = GetComponent<AudioSource>();
+            
             /**
             * This script is based upon 2 examples from the Unity Script Reference
             *
@@ -85,10 +99,12 @@ public class FPSMovementScript : MonoBehaviour
             {
                 if (canJump)
                 {
+                    Debug.Log("Called");
                     if (!jumpAlreadyPlayed)
                     {
                         fs.PlayOneShot(jump,0.8f);
-                        jumpAlreadyPlayed = true;
+                        
+                        jumpAlreadyPlayed = true; 
                     }
                     
                 }
@@ -98,6 +114,15 @@ public class FPSMovementScript : MonoBehaviour
                     jumpAlreadyPlayed = false;
                 }
                 
+            }
+            else
+            {
+                if (canJump && !jumpAlreadyPlayed)
+                {
+                    fs.Stop();
+                    fs.PlayOneShot(jump,0.8f);
+                    jumpAlreadyPlayed = true;
+                }
             }
             
         }
@@ -128,6 +153,7 @@ public class FPSMovementScript : MonoBehaviour
             Cursor.visible = true;
             NormalHUD.SetActive(false);
         }
+        isGroundedBefore = controller.isGrounded;
 
     }
 
@@ -169,11 +195,13 @@ public class FPSMovementScript : MonoBehaviour
     bool CheckToPlayFootsteps()
     {
         bool canPlay;
+       
+        
         Vector3 currentPosition = t.position;
         //Debug.Log("prev "+prevPosition);
         if(currentPosition == prevPosition)
         {
-           canPlay = false;
+            canPlay = false;
         }
         else
         {
@@ -181,5 +209,7 @@ public class FPSMovementScript : MonoBehaviour
         }
         prevPosition = currentPosition;
         return canPlay;
+            
+        
     }
 }

@@ -273,8 +273,8 @@ MonoBehaviour:
     y: 0
     width: 445.59998
     height: 716.8
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -1102,8 +1102,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 245.6
-    y: 79.200005
+    x: 246.6
+    y: 24
     width: 842.80005
     height: 446
   m_SerializedDataModeController:
@@ -1536,7 +1536,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: 472, y: 265.625, z: 0}
     speed: 2
-    m_Value: {x: 472, y: 265.625, z: 0.0008501909}
+    m_Value: {x: 472, y: 265.625, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1606,7 +1606,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_Viewpoint:
     m_SceneView: {fileID: 14}
@@ -1644,7 +1644,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 79.200005
+    y: 24
     width: 244.6
     height: 446
   m_SerializedDataModeController:
@@ -1661,23 +1661,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: caad0000
+      m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: 7a60feff9260feff1866feff3266feff986dfeffb06dfeff6273feff7873feffac8ffeffc48ffeff4a95feff5c95fefff49bfeff0c9cfeffa69efeffdea4fefff6a4feffb0aafeffc6aafeff88ecfeff76f2feff8ef2feff4af8feff66f8feff601cffff981fffffa227ffff2e28ffff7e4affff964affff2450ffffe056fffff856ffff825cffffb064ffffc864ffff8a6afffff4fafffffaaa0000de24010016250100623f010050410100584101000c430100be570100c6570100ce570100e2660100ea6601007c710100cc750100d47501001e7a0100187c0100f48601000c870100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: MainMenu
-        m_OriginalName: MainMenu
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 100108
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 8}
@@ -1811,7 +1811,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 551.2
+    y: 496
     width: 1089.4
     height: 218.79999
   m_SerializedDataModeController:
@@ -1855,7 +1855,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 79}
     m_SelectedIDs: 16b20000
     m_LastClickedID: 45590
-    m_ExpandedIDs: 0000000016b2000018b200001ab200001cb200001eb2000020b2000022b2000024b2000026b2000028b200002ab200002cb200002eb2000030b2000032b2000034b2000036b2000038b200003ab200003cb200003eb2000040b2000042b2000088b40000a6b40000a2ba00003ee5000040e5000050e5000000ca9a3bffffff7f
+    m_ExpandedIDs: 0000000062ab000064ab000066ab000068ab00006aab00006cab00006eab000070ab000072ab000074ab000076ab000078ab00007aab00007cab00007eab000080ab000082ab000084ab000086ab000088ab00008aab00008cab00008eab0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1884,7 +1884,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000016b2000018b200001ab200001cb200001eb2000020b2000022b2000024b2000026b2000028b200002ab200002cb200002eb2000030b2000032b2000034b2000036b2000038b200003ab200003cb200003eb2000040b2000042b20000
+    m_ExpandedIDs: 0000000062ab000064ab000066ab000068ab00006aab00006cab00006eab000070ab000072ab000074ab000076ab000078ab00007aab00007cab00007eab000080ab000082ab000084ab000086ab000088ab00008aab00008cab00008eab0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1999,8 +1999,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1090.4
-    y: 79.200005
+    x: 1091.4
+    y: 24
     width: 444.59998
     height: 690.8
   m_SerializedDataModeController:
