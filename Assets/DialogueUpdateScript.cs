@@ -54,21 +54,14 @@ public class DialogueUpdateScript : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (dialogueStarted == false|| finishDialogue==true)
-            {
-                if (finishDialogue)
-                {
-                    Ghost.GetComponent<GhostColliderScript>().instructionsFinished();
-                }
-                HideDialogue();
-                
-            }
+            
+
             if(dialogueNo <= dialogueList.Count)
             {
                 if(dialogueNo == dialogueList.Count-1)
                 {
                     finishDialogue = true;
-                    Debug.Log("finishdialogue");
+                    
                 }
                 else
                 {
@@ -77,6 +70,16 @@ public class DialogueUpdateScript : MonoBehaviour
                     dialogue = dialogueList[dialogueNo];
                 }
                 
+                
+            }
+
+            if (dialogueStarted == false|| finishDialogue==true)
+            {
+                if (finishDialogue)
+                {
+                    Ghost.GetComponent<GhostColliderScript>().instructionsFinished();
+                }
+                HideDialogue();
                 
             }
             
@@ -127,7 +130,6 @@ public class DialogueUpdateScript : MonoBehaviour
 
     void OnDisable()
     {
-        
     }
 
     void ContinueDialogue()

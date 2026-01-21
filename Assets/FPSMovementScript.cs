@@ -69,8 +69,12 @@ public class FPSMovementScript : MonoBehaviour
             canJump = true;
             canPlay = true;
         }
+        else if (controller.isGrounded == false && isGroundedBefore == false)
+        {
+            canPlay = false;
+        }
             
-        //}
+        
         else
         {
             canPlay = CheckToPlayFootsteps();
@@ -109,7 +113,7 @@ public class FPSMovementScript : MonoBehaviour
                     
                 }
                 else
-                {
+                {   
                     fs.PlayOneShot(walk,0.8f);
                     jumpAlreadyPlayed = false;
                 }
@@ -129,6 +133,7 @@ public class FPSMovementScript : MonoBehaviour
 
         if (healthEnabled == false)
         {
+            
             if(DialogueBox.GetComponent<DialogueUpdateScript>().startPlayerHealth == true)
             {
                 Debug.Log("enable health");

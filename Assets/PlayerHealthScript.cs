@@ -6,7 +6,7 @@ public class PlayerHealthScript : MonoBehaviour
     
     public GameObject GameOverScreen;
     public GameObject NormalHUD;
-    public int playerHealth= 50;
+    public int playerHealth= 41;
     public int healthFromPear =5;
     public int intervalMilliseconds = 7000;
     private DateTime lastTrigger= DateTime.Now;
@@ -59,8 +59,8 @@ public class PlayerHealthScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(gameObject.name);
-        if(other.gameObject.tag == "Pear")
+        bool canPickUp = NormalHUD.GetComponentInChildren<DialogueUpdateScript>(true).disableTorchCollider;
+        if(other.gameObject.tag == "Pear"&& canPickUp)
         {
             playerHealth += healthFromPear;
            
