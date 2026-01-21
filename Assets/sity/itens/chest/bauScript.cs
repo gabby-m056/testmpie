@@ -22,6 +22,7 @@ public class bauScript : MonoBehaviour {
 	bool cheio = true;
 	bool canOpenChest=false;
 	bool pickUpHintCalled = false;
+	bool gameplayStarted;
 	//rotatação max  -60 -900 -900
 	//0, -720, -720
 
@@ -32,81 +33,94 @@ public class bauScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.E))
+		gameplayStarted = player.GetComponent<PlayerHealthScript>().enabled;
+		if (gameplayStarted)
 		{
-			canOpenChest=true;
+				if(Input.GetKey(KeyCode.E))
+			{
+				canOpenChest=true;
+			}
+			else
+			{
+				canOpenChest = false;
+			}
+
+			
+
+			if (abrir) {
+				
+				if (this.transform.rotation.x > -0.9) {
+					
+					this.transform.Rotate (new Vector3 (-velocity * Time.deltaTime * 2, 0.0f, 0.0f));
+					if(this.transform.rotation.x < -0.45 && cheio == true){
+						liberar ();
+						cheio = false;
+						
+					}
+				}
+				if(this.transform.rotation.x <= -0.9 && pickUpHintCalled==false)
+				{
+					hintBox.SetActive(true);
+					hintBox.GetComponent<HintUpdateScript>().PickUpItems();
+					pickUpHintCalled = true;
+				}
+
+
+
+				
+				//modification by Me
+
+				if (Input.GetKeyDown(KeyCode.P))
+				{
+					key.gameObject.SetActive(false);
+					
+					player.GetComponent<PlayerHealthScript>().playerHealth += 5;
+					pear.gameObject.SetActive(false);
+					hintBox.GetComponent<HintUpdateScript>().ClearHint();
+
+				}
+				//my modification ends
+			} else {
+				if (this.transform.rotation.x < 0) {
+					this.transform.Rotate (new Vector3 (velocity * Time.deltaTime * 2 , 0.0f, 0.0f));
+
+				} 
+			}
 		}
 
 		
-
-		if (abrir) {
-			
-			if (this.transform.rotation.x > -0.9) {
-				
-				this.transform.Rotate (new Vector3 (-velocity * Time.deltaTime * 2, 0.0f, 0.0f));
-				if(this.transform.rotation.x < -0.45 && cheio == true){
-					liberar ();
-					cheio = false;
-					
-				}
-			}
-			if(this.transform.rotation.x <= -0.9 && pickUpHintCalled==false)
-			{
-				hintBox.SetActive(true);
-				hintBox.GetComponent<HintUpdateScript>().PickUpItems();
-				pickUpHintCalled = true;
-			}
-
-
-
-			
-			//modification by Me
-
-			if (Input.GetKeyDown(KeyCode.P))
-			{
-				key.gameObject.SetActive(false);
-				
-				player.GetComponent<PlayerHealthScript>().playerHealth += 5;
-				pear.gameObject.SetActive(false);
-				hintBox.GetComponent<HintUpdateScript>().ClearHint();
-
-			}
-			//my modification ends
-		} else {
-			if (this.transform.rotation.x < 0) {
-				this.transform.Rotate (new Vector3 (velocity * Time.deltaTime * 2 , 0.0f, 0.0f));
-
-			} 
-		}
 	
 	}
 
 
-	void OnTriggerStay(Collider other) { 
+	void OnTriggerStay(Collider other) {
 
-		
-
-		if(other.gameObject.name == "FirstPersonController"&&abrir==false)
+		if (gameplayStarted)
 		{
-			if (alvo == null) {
-			Vector3 pos = this.transform.position;
-			pos.y += 0.5f;
-			pos.z += 0.25f;
-			alvo = Instantiate (target, pos, Quaternion.identity) as GameObject;
-			}
+				if(other.gameObject.name == "FirstPersonController"&&abrir==false)
+			{
+				if (alvo == null) {
+				Vector3 pos = this.transform.position;
+				pos.y += 0.5f;
+				pos.z += 0.25f;
+				alvo = Instantiate (target, pos, Quaternion.identity) as GameObject;
+				}
 
-			if (canOpenChest==true)
-			{
-					abrir = true;
-					Destroy (alvo.gameObject);
-			}
-			else
-			{
-				//enable hint script
-				hintBox.SetActive(true);
-				hintBox.GetComponent<HintUpdateScript>().OpenChest();
+				if (canOpenChest==true)
+				{
+						abrir = true;
+						Destroy (alvo.gameObject);
+				}
+				else
+				{
+					//enable hint script
+					hintBox.SetActive(true);
+					hintBox.GetComponent<HintUpdateScript>().OpenChest();
+				}
 			}
 		}
+
+		
 		
 
 
@@ -115,8 +129,15 @@ public class bauScript : MonoBehaviour {
 
 	void OnTriggerExit(Collider other) {
 
-		//Destroy (alvo.gameObject);
-		canOpenChest = false;
+		
+		
+		if (gameplayStarted)
+		{
+			hintBox.GetComponent<HintUpdateScript>().ClearHint();
+			Destroy (alvo.gameObject);
+			canOpenChest = false;
+		}
+		
 		
 	}
 
