@@ -890,6 +890,8 @@ MonoBehaviour:
   HintTitle: {fileID: 2130542260}
   heartImage: {fileID: 2117752000}
   healthText: {fileID: 1160854776}
+  walk: {fileID: 8300000, guid: 557e96b16076cb84285c90941906b44c, type: 3}
+  jump: {fileID: 8300000, guid: 64a62780b84db9645b00e69eb0621928, type: 3}
 --- !u!114 &316153231
 MonoBehaviour:
   m_ObjectHideFlags: 0

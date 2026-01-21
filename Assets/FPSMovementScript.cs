@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FPSColliderScript : MonoBehaviour
+public class FPSMovementScript : MonoBehaviour
 {
     public Collider parentCollider;
     //public C parentCollider;
@@ -15,10 +15,14 @@ public class FPSColliderScript : MonoBehaviour
 
     public GameObject heartImage;
     public GameObject healthText;
+
+    public AudioClip walk;
+    public AudioClip jump;
     bool healthEnabled = false;
    
     Transform t;
     Vector3 prevPosition;
+
 
     bool gameWon = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,22 +36,70 @@ public class FPSColliderScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool canPlay = CheckToPlayFootsteps();
+        bool canPlay = false;
+        bool canJump = false;
+        bool jumpAlreadyPlayed=false;
+        /**
+            * This line of code is based upon syntax from the Unity Script Reference
+            *
+            * Example 1:
+            * Author: Unity Technologies (author name unknown)
+            * Location: https://docs.unity3d.com/6000.3/Documentation/ScriptReference/CharacterController-isGrounded.html
+            * Accessed: 20/01/2026
+        */
+        
+        if(GetComponent<CharacterController>().isGrounded == false/*line of code reference ends*/) 
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                canJump = true;
+                canPlay = true;
+            }
+            
+        }
+        else
+        {
+            canPlay = CheckToPlayFootsteps();
+        }
+
+      
 
         if (canPlay)
         {
             AudioSource fs = GetComponent<AudioSource>();
-            https://docs.unity3d.com/6000.3/Documentation/ScriptReference/AudioSource.PlayOneShot.html
+            /**
+            * This script is based upon 2 examples from the Unity Script Reference
+            *
+            * Example 1:
+            * Author: Unity Technologies (author name unknown)
+            * Location: //https://docs.unity3d.com/6000.3/Documentation/ScriptReference/AudioSource.PlayOneShot.html
+            * Accessed: 20/01/2026
+            *
+            * Example 2:
+            * Author: Unity Technologies (author name unknown)
+            * Location: https://docs.unity3d.com/6000.3/Documentation/ScriptReference/AudioSource-isPlaying.html
+            * Accessed: 20/01/2026
+            */
+            
             if(fs.isPlaying == false)
             {
-                fs.Play();
+                if (canJump)
+                {
+                    if (!jumpAlreadyPlayed)
+                    {
+                        fs.PlayOneShot(jump,0.8f);
+                        jumpAlreadyPlayed = true;
+                    }
+                    
+                }
+                else
+                {
+                    fs.PlayOneShot(walk,0.8f);
+                    jumpAlreadyPlayed = false;
+                }
+                
             }
             
-           
-            //Debug.Log("test "+fs.isPlaying);
-            //fs.PlayOneShot(walkSound2,0.8f);
-            //walkSound1.Play();
-            //walkSound2.Play();
         }
 
         if (healthEnabled == false)
