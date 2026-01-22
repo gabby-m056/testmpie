@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class FPSMovementScript : MonoBehaviour
 {
-    public Collider parentCollider;
-    
     public GameObject GameOverScreen;
     public GameObject NormalHUD;
     public GameObject GameWonScreen;
