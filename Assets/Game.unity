@@ -850,7 +850,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d830595a42921bc4081d98f215b8d4db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentCollider: {fileID: 316153242}
   GameOverScreen: {fileID: 2143453105}
   NormalHUD: {fileID: 1301104076}
   GameWonScreen: {fileID: 735165443}
@@ -8434,8 +8433,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000038147, y: 0.000017405}
-  m_SizeDelta: {x: 456.5391, y: 45.1936}
+  m_AnchoredPosition: {x: 0.000038147, y: -3}
+  m_SizeDelta: {x: 456.5391, y: 36.0612}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1004186751
 MonoBehaviour:
@@ -8464,7 +8463,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
