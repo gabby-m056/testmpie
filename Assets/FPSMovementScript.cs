@@ -43,18 +43,14 @@ public class FPSMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(controller.isGrounded);
         canJump = false;
         canPlay = false;
-
-        // jumpAlreadyPlayed = false;
-        /**
-            * This line of code is based upon syntax from the Unity Script Reference
-            *
-            * Example 1:
-            * Author: Unity Technologies (author name unknown)
-            * Location: https://docs.unity3d.com/6000.3/Documentation/ScriptReference/CharacterController-isGrounded.html
-            * Accessed: 20/01/2026
+        /*
+        * This line of code is based upon syntax from the Unity Script Reference
+        *
+        * Author: Unity Technologies (author name unknown)
+        * Location: https://docs.unity3d.com/6000.3/Documentation/ScriptReference/CharacterController-isGrounded.html
+        * Accessed: 20/01/2026
         */
 
         //if(controller.isGrounded == false/*line of code reference ends*/) 
@@ -70,8 +66,6 @@ public class FPSMovementScript : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space)&&controller.isGrounded==false&&isGroundedBefore==true)
         {
-            Debug.Log("Space Pressed");
-            
             jumpAlreadyPlayed = false;
             canJump = true;
             canPlay = true;
@@ -143,7 +137,6 @@ public class FPSMovementScript : MonoBehaviour
             
             if(DialogueBox.GetComponent<DialogueUpdateScript>().startPlayerHealth == true)
             {
-                Debug.Log("enable health");
                 GetComponent<PlayerHealthScript>().enabled = true;
                 healthText.SetActive(true);
                 heartImage.SetActive(true);
@@ -172,9 +165,8 @@ public class FPSMovementScript : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         
-        if(other.gameObject.name == "PlayerBed"){
-            
-            
+        if(other.gameObject.name == "PlayerBed")
+        {
             other.gameObject.SetActive(false);
             gameWon = true;
         } 
@@ -184,8 +176,6 @@ public class FPSMovementScript : MonoBehaviour
             other.gameObject.SetActive(false);
         }
 
-        
-    
     }
 
     void Restart()

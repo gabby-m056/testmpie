@@ -23,7 +23,6 @@ public class DialogueUpdateScript : MonoBehaviour
        txt = GetComponentInChildren<Text>(true);
     }
 
-    //called when component is first enabled - https://docs.unity3d.com/6000.3/Documentation/ScriptReference/MonoBehaviour.OnEnable.html
     void OnEnable()
     {
         dialogue = dialogueList[dialogueNo];
@@ -31,7 +30,7 @@ public class DialogueUpdateScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   //https://docs.unity3d.com/ScriptReference/Component.GetComponentInChildren.html
+    {   
         
         txt.text = dialogue;
 
