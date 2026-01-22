@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonRestartScript : MonoBehaviour
 {
-    
+    //restarts scene from game over / game won screens
     public void ButtonIsClicked()
     {
         /*

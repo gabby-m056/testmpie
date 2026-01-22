@@ -9,7 +9,6 @@ public class DoorBehaviourScript : MonoBehaviour
 
     bool doorToggled = false;
     public GameObject player;
-     //Quaternion.Euler(0.0f, 90.0f, 0.0f);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +19,7 @@ public class DoorBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //checks if key is picked up & O is pressed so door can open
         if (Input.GetKeyDown(KeyCode.O)&&key.gameObject.activeSelf==false)
         {
             doorToggled = true;
@@ -32,6 +32,7 @@ public class DoorBehaviourScript : MonoBehaviour
         if(doorOpened == false)
         {
             hintBox.SetActive(true);
+            //Shows appropriate hint for opening door
             if(key.gameObject.activeSelf == false)
             {
                 hintBox.GetComponent<HintUpdateScript>().CanOpenDoor();
@@ -42,14 +43,14 @@ public class DoorBehaviourScript : MonoBehaviour
             }
             
         }
+
+
         Transform t = gameObject.transform;
-        //Input.GetKeyDown(KeyCode.O)&& 
+       
         if (other.gameObject.name==player.gameObject.name)
         {
-            Debug.Log("reach");
             if (doorToggled)
             {
-                Debug.Log("reach2");
                 doorOpened = !doorOpened;
 
                 if (doorOpened)
