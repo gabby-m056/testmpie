@@ -61,11 +61,14 @@ public class FPSMovementScript : MonoBehaviour
         //{
 
         //check if grounded BEFORE pressing space
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)&&controller.isGrounded)
         {
-            Debug.Log("test");
+            
+            jumpAlreadyPlayed = false;
+            canJump = true;
+            canPlay = true;
         }
-        if (Input.GetKeyDown(KeyCode.Space)&&controller.isGrounded==false&&isGroundedBefore==true)
+        else if (Input.GetKeyDown(KeyCode.Space)&&controller.isGrounded==false&&isGroundedBefore==true)
         {
             Debug.Log("Space Pressed");
             
