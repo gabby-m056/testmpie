@@ -365,6 +365,7 @@
     "m_OutputNode": {
         "m_Id": "d9b9be43d032446daf3940b17869620f"
     },
+    "m_SubDatas": [],
     "m_ActiveTargets": []
 }
 
@@ -1081,7 +1082,7 @@
     "m_DefaultValue": {
         "x": 0.0,
         "y": 0.0,
-        "z": 0.0
+        "z": 1.0
     },
     "m_Labels": []
 }

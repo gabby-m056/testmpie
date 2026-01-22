@@ -27,7 +27,7 @@ public class FPSMovementScript : MonoBehaviour
     bool canPlay = false;
     bool canJump = false;
     bool jumpAlreadyPlayed=false;
-    bool isGroundedBefore = false;
+    bool isGroundedBefore = true;
 
     bool gameWon = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -43,10 +43,11 @@ public class FPSMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(controller.isGrounded);
         canJump = false;
         canPlay = false;
 
-       // jumpAlreadyPlayed = false;
+        // jumpAlreadyPlayed = false;
         /**
             * This line of code is based upon syntax from the Unity Script Reference
             *
@@ -55,12 +56,15 @@ public class FPSMovementScript : MonoBehaviour
             * Location: https://docs.unity3d.com/6000.3/Documentation/ScriptReference/CharacterController-isGrounded.html
             * Accessed: 20/01/2026
         */
-        
+
         //if(controller.isGrounded == false/*line of code reference ends*/) 
         //{
 
         //check if grounded BEFORE pressing space
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("test");
+        }
         if (Input.GetKeyDown(KeyCode.Space)&&controller.isGrounded==false&&isGroundedBefore==true)
         {
             Debug.Log("Space Pressed");
