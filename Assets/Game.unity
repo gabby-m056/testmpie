@@ -496,7 +496,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1d01bd09414ef9e42ba89c0219163eaa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1639542523}
   m_SourcePrefab: {fileID: 100100000, guid: 1d01bd09414ef9e42ba89c0219163eaa, type: 3}
 --- !u!4 &144332907 stripped
 Transform:
@@ -2617,7 +2620,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 0.9216981, g: 0.84339625, b: 1, a: 1}
+  m_Color: {r: 0.2178955, g: 0.16580276, b: 0.2754717, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -9624,12 +9627,13 @@ MonoBehaviour:
     is sleepy gas and it is poisonous to the non-ghosts of this world! If you go
     to bed, you won''t be affected by it.'
   - If you can find key the to my house, you can go inside and sleep before the gas
-    affects you! I The key is found in a blue chest but I've forgot where the chest
+    affects you! The key is found in a blue chest but I've forgot where the chest
     is so you are going to have to be quick and find it yourself!
-  - 'My house is somewhere nearby too so hopefully you''ll be able to find it! There
-    are also blue pears around and if you eat them you will be given a health boost! '
-  - Just stand on the pears to grab them and eat them. Now go quick before the gas
-    poisons you - Good Luck!!!!
+  - My house is somewhere nearby too so hopefully you'll be able to find it! You
+    can also turn your torch on and off by pressing the F key.
+  - There are also blue pears around and if you eat them you will be given a health
+    boost! Just stand on the pears to grab them and eat them. Now go quick before
+    the gas poisons you - Good Luck!!!!
 --- !u!1 &1392052094 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1276330849123174, guid: 3d0e048f29527f243b99783f25df9eb1, type: 3}
@@ -10845,6 +10849,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625960911}
   m_CullTransparentMesh: 1
+--- !u!1 &1639542521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1d01bd09414ef9e42ba89c0219163eaa, type: 3}
+  m_PrefabInstance: {fileID: 110966461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1639542523
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639542521}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2692962, y: 7.53133, z: 5.9457707}
+  m_Center: {x: 0.006613759, y: 3.2656658, z: 0.045800664}
 --- !u!1001 &1732242761
 PrefabInstance:
   m_ObjectHideFlags: 0
