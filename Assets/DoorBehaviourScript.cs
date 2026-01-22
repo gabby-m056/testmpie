@@ -8,6 +8,7 @@ public class DoorBehaviourScript : MonoBehaviour
     Vector3 rotatedPosition = new Vector3 (423.8f, 0.876f, 375.953f);
 
     bool doorToggled = false;
+    bool doorOpened = false;
     public GameObject player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,7 +29,7 @@ public class DoorBehaviourScript : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        bool doorOpened = false;
+        doorOpened = false;
         if(doorOpened == false)
         {
             hintBox.SetActive(true);
@@ -46,13 +47,14 @@ public class DoorBehaviourScript : MonoBehaviour
 
 
         Transform t = gameObject.transform;
-       
+       //checks if player is triggering door collider
         if (other.gameObject.name==player.gameObject.name)
         {
             if (doorToggled)
             {
                 doorOpened = !doorOpened;
 
+                //if door is opened - move door so it can be opened and player can walk through it
                 if (doorOpened)
                 {
                     t.position = rotatedPosition;
@@ -72,6 +74,7 @@ public class DoorBehaviourScript : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        //clears hintbox
         hintBox.GetComponent<HintUpdateScript>().ClearHint();
     }
 }
