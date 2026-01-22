@@ -9120,7 +9120,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 9de4f8b8eb39b5f49a9e25705e5c0f19, type: 3}
   m_Resource: {fileID: 8300000, guid: 9de4f8b8eb39b5f49a9e25705e5c0f19, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.275
   m_Pitch: 1
   Loop: 1
   Mute: 0
