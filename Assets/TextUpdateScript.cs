@@ -9,15 +9,12 @@ public class TextUpdateScript : MonoBehaviour
     {
         
     }
-
-    
-
     // Update is called once per frame
     void Update()
     {
-        
+        //gets health value from player health script
         int healthValue = player.GetComponent<PlayerHealthScript>().playerHealth;
-        //Debug.Log(healthValue);
+        //shows health value on HUD 
         Text txt =  GetComponent<Text>();
         txt.text = healthValue.ToString();
     }

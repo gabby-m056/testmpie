@@ -6,7 +6,7 @@ public class DialogueUpdateScript : MonoBehaviour
 {
     public GameObject CharacterSpeakingBox;
     public GameObject Ghost;
-    //dialogue to be shown
+    //dialogue message to be shown
     string dialogue;
     bool dialogueStarted = false;
     public bool disableTorchCollider = false;

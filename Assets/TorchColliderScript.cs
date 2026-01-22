@@ -20,12 +20,10 @@ public class TorchColliderScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        //fires first set of dialogue
         if(other.gameObject.name == "GhostNPCTrigger"){
             
-            Debug.Log("triggerstart");
             DialogueBox.SetActive(true);
-            
-
         } 
         
 

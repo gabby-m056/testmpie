@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MaInMenuButtonScript : MonoBehaviour
 {
+    //starts game from main menu by opening game scene
     public void StartClicked()
     {
         /*
@@ -17,6 +18,7 @@ public class MaInMenuButtonScript : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+    //exits application from main menu
     public void ExitClicked()
     {
         Application.Quit();

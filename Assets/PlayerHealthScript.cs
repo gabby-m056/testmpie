@@ -51,7 +51,7 @@ public class PlayerHealthScript : MonoBehaviour
             Cursor.visible = true;
             
             NormalHUD.SetActive(false);
-            //GameOverScreen.GetComponent<GameOverScript>().GameIsOver();
+            
             
         }
         

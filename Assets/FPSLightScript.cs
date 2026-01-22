@@ -12,6 +12,7 @@ public class FPSLightScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //toggles flashlight
         if(Input.GetKeyDown(KeyCode.F)){
             playerflashlight.enabled = !playerflashlight.enabled;
         }
