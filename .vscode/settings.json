@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "testmpie - Copy.sln"
+    "dotnet.defaultSolution": "Sleepy Sojourn.sln"
 }
