@@ -26,19 +26,7 @@ public class DialogueUpdateScript : MonoBehaviour
     //called when component is first enabled - https://docs.unity3d.com/6000.3/Documentation/ScriptReference/MonoBehaviour.OnEnable.html
     void OnEnable()
     {
-        /*if(dialogueStarted == false)
-        {
-            dialogue = dialogueList[0];
-        }*/
-
         dialogue = dialogueList[dialogueNo];
-
-        /*if (dialogueStarted && dialogueToContinue)
-        {
-            dialogue = dialogue
-        }*/
-        
-        
     }
 
     // Update is called once per frame
@@ -66,10 +54,8 @@ public class DialogueUpdateScript : MonoBehaviour
                 else
                 {
                     dialogueNo++;
-                    Debug.Log("Dialogue count : "+ dialogueNo);
                     dialogue = dialogueList[dialogueNo];
                 }
-                
                 
             }
 
@@ -82,37 +68,11 @@ public class DialogueUpdateScript : MonoBehaviour
                 HideDialogue();
                 
             }
-            
-            
-           
-           
         }
-
-       /* if (dialogueStarted == false && gameObject.activeInHierarchy)
-        {
-            
-           
-        }*/
-
-        if(dialogueStarted == true && gameObject.activeInHierarchy)
-        {
-            ContinueDialogue();
-        }
-
-        /*if (Input.GetKeyDown(KeyCode.Return))
-        {
-            enterPressed = true;
-        }*/
-    }
-
-    void ShowDialogue()
-    {
-        
     }
 
     void HideDialogue()
     {
-        //Debug.Log("slay");
         if (dialogueStarted == false)
         {
             dialogueStarted = true;
@@ -128,31 +88,4 @@ public class DialogueUpdateScript : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void OnDisable()
-    {
-    }
-
-    void ContinueDialogue()
-    {
-        //int i=1;
-        //Debug.Log("reach");
-        /*while (i<dialogueList.Count - 1)
-        {
-            dialogue = dialogueList[i];
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                i++;
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            gameObject.SetActive(false);
-        }*/
-
-        
-
-        
-        
-    }
 }
